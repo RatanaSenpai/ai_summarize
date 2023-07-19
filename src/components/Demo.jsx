@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { copy, linkIcon, loader, tick } from '../assets';
 import { useLazyGetSummaryQuery } from '../services/article';
-import { set } from 'immer/dist/internal';
+
 
 const Demo = () => {
   const [article, setArticle] = useState({
@@ -16,7 +16,7 @@ const Demo = () => {
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
   useEffect(() => {
-    const articlesFromLocalStorage = JSON.parse(localStorage.getItem('articles'))
+    const articlesFromLocalStorage = JSON.parse(localStorage.getItem('articles'));
 
     if (articlesFromLocalStorage) {
       setAllArticles(articlesFromLocalStorage)
@@ -37,12 +37,13 @@ const Demo = () => {
 
       localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
     }
-  }
+  };
   
   const handleCopy = (copyUrl) => {
     setCopied(copyUrl);
     navigator.clipboard.writeText(copyUrl);
     setTimeout(() => setCopied(false), 3000);
+  };
 
   return (
     <section className='mt-16 w-full max-w-xl'>
@@ -122,7 +123,7 @@ const Demo = () => {
           )}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Demo;
