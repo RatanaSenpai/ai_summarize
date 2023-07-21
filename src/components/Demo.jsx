@@ -56,7 +56,7 @@ const Demo = () => {
           <img src={linkIcon} alt="link_icon" className='absolute left-0 my-2 ml-3 w-5' />
           <input 
             type="url" 
-            placeholder='Entrer votre URL'
+            placeholder='Entrez votre URL'
             value={article.url}
             onChange={(e) => setArticle({...article, url: e.target.value})}
             required
